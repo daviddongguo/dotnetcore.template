@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 Root=${PWD##*/}
 
-# Create projects Add into solution, Add references
+# Create projects, solution, And add references
 ./scripts/new.sh
 pwd
 ls -l
