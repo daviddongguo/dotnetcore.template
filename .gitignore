@@ -351,3 +351,4 @@ MigrationBackup/
 dotnetcore.template.sln
 src/
 tests/
+Program.cs

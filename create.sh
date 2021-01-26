@@ -4,11 +4,12 @@ Root=${PWD##*/}
 # Create projects, solution, And add references
 ./scripts/new.sh
 pwd
-ls -l
+ls ./src -ls
+ls ./tests -ls
 sleep 10
 
 # Console project for debugging
-cd $Root.Console && pwd
+cd ./src/$Root.Console && pwd
 cat > Program.cs << EOF
 namespace $Root.Console
 {
@@ -16,16 +17,18 @@ namespace $Root.Console
     {
         static void Main(string[] args)
         {
+            System.Console.WriteLine("-----------------------, \n");
             System.Console.WriteLine("Console project Created, \n");
+            System.Console.WriteLine("-----------------------, \n");
         }
     }
 }
 EOF
 dotnet run
-cd ..
+cd ../..
 
 # Nunit project
-cd $Root.NunitTests && pwd
+cd ./tests/$Root.NunitTests && pwd
 rm UnitTest1.cs
 cat > AlwaysPassTest.cs << EOF
 using NUnit.Framework;
@@ -51,4 +54,4 @@ namespace $Root.NunitTests
 }
 EOF
 dotnet test -l "console;verbosity=detailed"
-cd ..
+cd ../..
